@@ -1,7 +1,7 @@
 package com.reinaldopires.course.config;
 
 import java.time.Instant;
-import java.util.ArrayList;
+
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +51,15 @@ public class TestConfig implements CommandLineRunner{
 		Product p5 = new Product(null, "Iphone 16 Pro Max", "Phone 500GB",7858.11, "");
 		
 		productRepository.saveAll(Arrays.asList(p1,p2,p3,p4,p5));	
+		
+		p1.getCategories().add(cat2);
+		p2.getCategories().add(cat1);
+		p2.getCategories().add(cat3);
+		p3.getCategories().add(cat1);
+		p4.getCategories().add(cat3);
+		p5.getCategories().add(cat1);
+		
+		productRepository.saveAll(Arrays.asList(p1,p2,p3,p4,p5));
 			
 		User u1 = new User(null, "Maria Brown", "maria@hot.com","01989989899","123456789");
 		User u2 = new User(null, "Mari Campo", "maria@yhaoo.com","02989989899","123456789");
